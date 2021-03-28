@@ -36,20 +36,13 @@ class _AddRecepientsScreen extends State<AddRecepientsScreen> {
     if (mainRecepientCont.text.isNotEmpty) {
       if (isValidEmail(mainRecepientCont.text)) {
         email.mainRecepient = mainRecepientCont.text;
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (c) => SendEmailScreen()));
       } else {
         showRecepientError(RecepientErrorType.WrongMainRecepient);
-        return;
       }
-    }
-
-    if (email.mainRecepient == null && email.recepinets.length == 0) {
-      showRecepientError(RecepientErrorType.NoRecepient);
     } else {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (c) => SendEmailScreen(),
-        ),
-      );
+      showRecepientError(RecepientErrorType.ExistMainRecepient);
     }
   }
 
@@ -128,7 +121,7 @@ class _AddRecepientsScreen extends State<AddRecepientsScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    pageActionText("Lets add participants"),
+                    pageActionText("Lets add recepients"),
                     SizedBox(
                       height: 20,
                     ),

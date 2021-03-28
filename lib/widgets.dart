@@ -16,6 +16,7 @@ AppBar appBar({String title}) {
 }
 
 Column input({
+  bool obscureText = false,
   String title,
   @required bool showHint,
   FormFieldSetter<String> onSave,
@@ -40,6 +41,7 @@ Column input({
             )
           : Container(),
       TextFormField(
+        obscureText: obscureText,
         controller: controller,
         onSaved: onSave,
         validator: validator,

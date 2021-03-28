@@ -20,6 +20,9 @@ void showRecepientError(RecepientErrorType errorType) {
     case RecepientErrorType.WrongMainRecepient:
       errorText = "Looks like your Main Recepient is InValid";
       break;
+    case RecepientErrorType.ExistMainRecepient:
+      errorText = "You have to write main Recepient";
+      break;
     default:
       errorText = "Something is really wrong";
   }
@@ -39,4 +42,16 @@ bool isValidEmail(String input) {
   final RegExp regex = new RegExp(
       r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
   return regex.hasMatch(input);
+}
+
+void showError(String text) {
+  FlutterToast.showToast(
+    msg: text,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.CENTER,
+    timeInSecForIosWeb: 2,
+    backgroundColor: Colors.red,
+    textColor: Colors.white,
+    fontSize: 16.0,
+  );
 }

@@ -4,6 +4,7 @@ enum RecepientErrorType {
   NoRecepient,
   InValidRecepient,
   WrongMainRecepient,
+  ExistMainRecepient,
 }
 
 enum ButtonAction {
